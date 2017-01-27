@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp" ng-controller="RootController as $root">
+<head>
+    <meta charset="UTF-8">
+    <title>{{$root.authorName}} Blog</title>
+
+    <!--dependencies-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <link rel="shortcut icon" href="images/shortcut.svg">
+
+    <link rel="stylesheet" href="style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+
+    <!--javascript file-->
+    <script src="app/app.js"></script>
+    <script src="app/main.router.js"></script>
+    <!--controller-->
+    <script src="app/root.ctrl.js"></script>
+    <script src="app/article.ctrl.js"></script>
+    <script src="app/article.list.ctrl.js"></script>
+    <script src="app/article.create.ctrl.js"></script>
+
+    <script type="text/javascript" src="bower_components/tinymce/tinymce.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+</head>
+
+<body class="author-template author-nazarco nav-closed">
+    <div ui-view=""></div>
+</body>
+
+</html>

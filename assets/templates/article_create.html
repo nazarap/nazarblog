@@ -1,0 +1,43 @@
+<div class="post-template" id="content">
+
+    <div class="site-wrapper">
+
+        <header class="main-header post-head no-cover">
+            <nav class="main-nav  clearfix">
+                <a class="blog-logo" href="#/"><div class="img" style="background-image: url(images/retrica.jpg); width: 40px; height: 40px; background-size: 40px; background-position: center; "><span class="hidden">Nazar Oryschuk's Picture</span></div></a>
+            </nav>
+        </header>
+
+        <main class="content" role="main">
+            <article class="post">
+
+                <header class="post-header">
+                    <button class="publish-btn" ng-click="$create.publish()">PUBLISH</button>
+                    <input placeholder="Title:" class="publish-title" ng-model="$create.article.title">
+                </header>
+
+                <section class="post-content">
+                    <textarea ui-tinymce="$create.tinymceOptions" ng-model="$create.article.text"></textarea>
+                </section>
+
+            </article>
+        </main>
+
+        <!--<aside class="read-next">-->
+        <!--<a class="read-next-story prev no-cover" href="https://googleyasheck.com/i-didnt-get-hired-heres-why/">-->
+        <!--<section class="post">-->
+        <!--<h2>I Didn't Get Hired. Here's Why.</h2>-->
+        <!--<p>First of all, thank you to everyone who cheered me on and supported me with your kind words over…</p>-->
+        <!--</section>-->
+        <!--</a>-->
+        <!--</aside>-->
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="#/">Nazarco Inc. Corporation</a> © 2017</section>
+            <!--<section class="poweredby">Proudly published with <a href="https://ghost.org/">Ghost</a></section>-->
+        </footer>
+
+    </div>
+</div>

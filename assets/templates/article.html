@@ -1,0 +1,75 @@
+<div class="post-template" id="content">
+
+    <div class="site-wrapper">
+
+        <header class="main-header post-head no-cover">
+            <nav class="main-nav  clearfix">
+                <a class="blog-logo" href="#/"><div class="img" style="background-image: url(images/retrica.jpg); width: 40px; height: 40px; background-size: 40px; background-position: center; "><span class="hidden">Nazar Oryschuk's Picture</span></div></a>
+            </nav>
+        </header>
+
+        <main class="content" role="main">
+            <article class="post">
+
+                <header class="post-header">
+                    <h1 class="post-title">{{$article.article.title}}</h1>
+                    <section class="post-meta">
+                        <time class="post-date">{{$article.article.date | date: "dd MMMM yyyy"}}</time>
+                    </section>
+                </header>
+
+                <section class="post-content">
+                    <span ng-bind-html='$article.toTrustedHTML( $article.article.text )'></span>
+                </section>
+
+                <footer class="post-footer">
+
+
+                    <figure class="author-image">
+                        <a class="img" href="#/" style="background-image: url(images/avatar.jpg)"><span class="hidden">Nazar Oryschuk's Picture</span></a>
+                    </figure>
+
+                    <section class="author">
+                        <h4><a href="#/">{{$root.authorName}}</a></h4>
+
+                        <p>{{$root.myDescription}}</p>
+                        <div class="author-meta">
+                            <span class="author-location icon-location">Chernivchi, UA</span>
+                            <span class="author-link icon-link"><a ng-href="{{$root.facebookLink}}" target="_blank">Facebook social link</a></span>
+                        </div>
+                    </section>
+
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" ng-href="{{$root.facebookLink}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" ng-href="{{$root.facebookLink}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                    </section>
+
+                </footer>
+
+            </article>
+        </main>
+
+        <!--<aside class="read-next">-->
+            <!--<a class="read-next-story prev no-cover" href="https://googleyasheck.com/i-didnt-get-hired-heres-why/">-->
+                <!--<section class="post">-->
+                    <!--<h2>I Didn't Get Hired. Here's Why.</h2>-->
+                    <!--<p>First of all, thank you to everyone who cheered me on and supported me with your kind words over…</p>-->
+                <!--</section>-->
+            <!--</a>-->
+        <!--</aside>-->
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="#/">Nazarco Inc. Corporation</a> © 2017</section>
+            <!--<section class="poweredby">Proudly published with <a href="https://ghost.org/">Ghost</a></section>-->
+        </footer>
+
+    </div>
+</div>
