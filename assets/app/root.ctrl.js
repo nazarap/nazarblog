@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module("mainApp")
-        .controller("RootController", function () {
+        .controller("RootController", function ($sce) {
             var vm = this;
 
             vm.authorName = "Nazar Oryshcuk";
@@ -13,5 +13,10 @@
             vm.twitterLink = "Twitter LINK";
 
             vm.myDescription = "Autodidact & programmer. Amateur: barista, off-roader, illustrator. I like fountain pens and paper. Let's connect."
-        })
+
+
+            vm.toTrustedHTML = function(html) {
+              return $sce.trustAsHtml( html );
+            }
+      })
 })();

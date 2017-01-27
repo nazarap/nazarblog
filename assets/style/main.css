@@ -2171,7 +2171,7 @@ For Google Site Search
     font-family: 'Open Sans',sans-serif;
     text-rendering: geometricprecision;
     padding-right: 20px;
-    width: 97%;
+    width: 94%;
     height: 50px;
     border: medium none;
     padding-left: 20px;
@@ -2183,4 +2183,9 @@ For Google Site Search
 .mce-content-body {
     font-family: 'Open Sans',sans-serif;
     text-rendering: geometricprecision;
+}
+
+.article-short-text {
+  height: 100px;
+  overflow: hidden;
 }

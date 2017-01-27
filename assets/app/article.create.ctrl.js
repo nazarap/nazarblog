@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module("mainApp")
-        .controller("ArticleCreateController", function ($http) {
+        .controller("ArticleCreateController", function ($http, $state) {
             var vm = this;
 
             String.prototype.replaceAll = function(search, replacement) {
@@ -21,12 +21,18 @@
               vm.article.link = vm.article.title.toLowerCase().replaceAll(" ", "-");
 
               $http.post("article/create", vm.article).then(function (response) {
-                console.log(response);
+                  $state.go('articleList');
               });
             };
 
 
             vm.tinymceOptions = {
+                plugins: [
+                  "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                  "searchreplace wordcount visualblocks visualchars code fullscreen",
+                  "insertdatetime media nonbreaking save table contextmenu directionality",
+                  "emoticons template paste textcolor colorpicker textpattern"
+                ],
                 font_formats: '"Open Sans", sans-serif',
                 height: "250px"
             };
