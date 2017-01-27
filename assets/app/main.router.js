@@ -26,7 +26,7 @@
                 })
 
                 .state('article', {
-                    url: '/article/:title_id',
+                    url: '/article/:article_link',
                     controller: 'ArticleController',
                     controllerAs: '$article',
                     templateUrl: 'templates/article.html'

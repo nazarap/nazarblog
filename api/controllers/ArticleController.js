@@ -10,7 +10,8 @@ module.exports = {
   create: function (req, res) {
     var params = {
       title: req.param('title'),
-      text: req.param('text')
+      text: req.param('text'),
+      link: req.param('link')
     };
     Article.create(params).exec(function (err, articleList) {
       if (err) return res.send(500);
@@ -20,9 +21,14 @@ module.exports = {
 
   watch: function (req, res) {
     var articleId = req.param('article_id');
-    if (!articleId) return res.send(500);
+    var articleLink = req.param('article_link');
+    if (!articleId && !articleLink) return res.send(500);
 
-    var findObj = {id: articleId};
+    if(articleId) {
+      var findObj = {id: articleId};
+    } else {
+      var findObj = {link: articleLink};
+    }
     Article.findOne(findObj)
       .exec(function (err, articleList) {
         if (!articleList) return res.send(404);

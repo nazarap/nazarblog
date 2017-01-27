@@ -29,7 +29,7 @@
 
         <article class="post" ng-repeat="article in $articleList.articleList">
             <header class="post-header">
-                <h2 class="post-title"><a ui-sref='article({title_id: article.link})'>{{article.title}}</a></h2>
+                <h2 class="post-title"><a ui-sref='article({article_link: article.link})'>{{article.title}}</a></h2>
             </header>
             <section class="post-excerpt">
                 <p>{{article.text}} ...</p>
@@ -37,7 +37,7 @@
             <footer class="post-meta">
                 <a href="/">{{$root.authorName}}</a>
 
-                <time class="post-date">{{article.date | date: "dd MMMM yyyy"}}</time>
+                <time class="post-date">{{article.createdAt | date: "dd MMMM yyyy"}}</time>
                 <!-- comment count for Disqus begins -->
                 <a class="hidden" href="/follow-my-adventures/#disqus_thread" class="post-comment-count">{{article.commentsCount}} Comments</a>
                 <!-- comment count for Disqus ends -->
