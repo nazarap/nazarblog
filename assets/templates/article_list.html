@@ -12,7 +12,7 @@
         <h2 class="author-bio">{{$root.myDescription}}</h2>
         <div class="author-meta">
             <span class="author-location icon-location">Chernivchi, UA</span>
-            <span class="author-link icon-link"><a ng-href="$root.facebookLink" target="_blank">Facebook social link</a></span>
+            <span class="author-link icon-link"><a ng-href="{{$root.facebookLink}}" target="_blank">Facebook social link</a></span>
             <span class="author-stats"><i class="icon-stats"></i> 59 posts</span>
         </div>
     </section>
@@ -44,8 +44,9 @@
             </footer>
         </article>
         <nav class="pagination" role="navigation">
-            <span class="page-number">Page 1 of 6</span>
-            <a class="older-posts" href="/">Older Posts <span aria-hidden="true">→</span></a>
+            <a class="newer-posts" ng-if="$articleList.page != 1" ng-click="$articleList.changePage(-1)"><span aria-hidden="true">←</span> Newer Posts</a>
+            <span class="page-number">Page {{$articleList.page}} of {{$articleList.totalPage}}</span>
+            <a class="older-posts" ng-if="$articleList.page < $articleList.totalPage" ng-click="$articleList.changePage(1)">Older Posts <span aria-hidden="true">→</span></a>
         </nav>
     </main>
 
