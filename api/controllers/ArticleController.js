@@ -38,12 +38,25 @@ module.exports = {
   },
 
   list: function (req, res) {
-    Article.find()
-      .exec(function (err, articleList) {
-        if (!articleList) return res.send(404);
-        if (err) return res.send(500);
-        return res.json(articleList);
-      });
+    var page = req.param('page');
+    var limit = req.param('limit') || 10;
+
+    if(page) {
+      Article.find().sort('createdAt DESC').paginate({page: page, limit: limit})
+        .exec(function (err, articleList) {
+          if (!articleList) return res.send(404);
+          if (err) return res.send(500);
+          return res.json(articleList);
+        });
+    } else {
+      Article.find().sort('createdAt DESC')
+        .exec(function (err, articleList) {
+          if (!articleList) return res.send(404);
+          if (err) return res.send(500);
+          return res.json(articleList);
+        });
+    }
+
   }
 
 };

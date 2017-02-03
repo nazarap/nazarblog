@@ -5,9 +5,9 @@
     angular.module("mainApp")
         .controller("ArticleListController", function ($http) {
             var vm = this;
-
-            $http.get("article/list").then(function (response) {
-              vm.articleList = response.data.reverse();
+            vm.page = 1;
+            $http.get("article/list?page=" + vm.page).then(function (response) {
+              vm.articleList = response.data;
             });
 
         })
