@@ -64,6 +64,13 @@ module.exports = {
         });
     }
 
+  },
+
+  delete:function(req, res){
+      console.log(1);
+      Article.destroy(req.param('id')).exec(function(err, todo){
+
+      });
   }
 
 };
