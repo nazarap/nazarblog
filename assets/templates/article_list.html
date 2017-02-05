@@ -1,5 +1,5 @@
 <div class="site-wrapper">
-    <header class="main-header author-head " style="background-image: url(images/background.jpg)">
+    <header class="main-header author-head " style="background-image: url(images/{{$articleList.backgound}}.jpg)">
         <nav class="main-nav overlay clearfix">
         </nav>
     </header>
@@ -13,7 +13,7 @@
         <div class="author-meta">
             <span class="author-location icon-location">Chernivchi, UA</span>
             <span class="author-link icon-link"><a ng-href="{{$root.facebookLink}}" target="_blank">Facebook social link</a></span>
-            <span class="author-stats"><i class="icon-stats"></i> 59 posts</span>
+            <span class="author-stats"><i class="icon-stats"></i> {{$articleList.total}} posts</span>
         </div>
     </section>
 

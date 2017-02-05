@@ -34,7 +34,31 @@
                   "emoticons template paste textcolor colorpicker textpattern"
                 ],
                 font_formats: '"Open Sans", sans-serif',
-                height: "250px"
+                height: "250px",
+                setup: function(editor) {
+                    editor.addMenuItem('soundCloud', {
+                        icon: 'redo',
+                        text: 'SoundCloud',
+                        context: 'insert',
+                        onclick: function() {
+                            editor.windowManager.open({
+                                title: 'Insert SoundCloud player',
+                                body: [
+                                    {
+                                        type: 'textbox',
+                                        name: 'scLink',
+                                        label: 'SoundCloud link',
+                                        value: '',
+                                        minWidth: 400
+                                    }
+                                ],
+                                onsubmit: function(e) {
+                                    editor.insertContent('<iframe src="' + e.data.scLink + '" frameborder="0" height="300" style="width: 100%"></iframe>');
+                                }
+                            });
+                        }
+                    });
+                },
             };
         })
 })();

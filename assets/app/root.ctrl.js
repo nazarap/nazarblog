@@ -12,7 +12,7 @@
             vm.vkLink = "https://vk.com/id136969705";
             vm.twitterLink = "Twitter LINK";
 
-            vm.myDescription = "Autodidact & programmer. Amateur: barista, off-roader, illustrator. I like fountain pens and paper. Let's connect."
+            vm.myDescription = "Enthusiast & programmer. Amateur: ohhh, hmmmm, I don't know. I`m egoist with a real love for everything beautiful.";
 
 
             vm.toTrustedHTML = function(html) {
