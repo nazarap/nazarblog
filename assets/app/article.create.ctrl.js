@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module("mainApp")
-        .controller("ArticleCreateController", function ($http, $state) {
+        .controller("ArticleCreateController", function ($http, $state, $scope) {
             var vm = this;
 
             String.prototype.replaceAll = function(search, replacement) {
@@ -16,6 +16,7 @@
               text: "My story ...",
               link: ""
             };
+            vm.isOpenPreview = false;
 
             vm.publish = function() {
               vm.article.link = vm.article.title.toLowerCase().replaceAll(" ", "-");
@@ -25,6 +26,9 @@
               });
             };
 
+            vm.closePreview = function () {
+                vm.isOpenPreview = false;
+            };
 
             vm.tinymceOptions = {
                 plugins: [
@@ -58,6 +62,19 @@
                             });
                         }
                     });
+
+
+                    editor.addMenuItem('previewBtn', {
+                        icon: 'redo',
+                        text: 'Preview',
+                        context: 'tools',
+                        onclick: function() {
+                            vm.isOpenPreview = true;
+                            vm.now = new Date();
+                            $scope.$apply();
+                        }
+                    });
+
                 },
             };
         })

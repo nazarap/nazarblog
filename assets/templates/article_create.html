@@ -21,6 +21,22 @@
                 </section>
 
             </article>
+
+            <article class="post" ng-if="$create.isOpenPreview">
+
+                <header class="post-header">
+                    <button class="publish-btn" ng-click="$create.closePreview()">CLOSE</button><br><br>
+                    <h1 class="post-title">{{$create.article.title}}</h1>
+                    <section class="post-meta">
+                        <time class="post-date">{{$create.now | date: "dd MMMM yyyy"}}</time>
+                    </section>
+                </header>
+
+                <section class="post-content">
+                    <span ng-bind-html='$root.toTrustedHTML( $create.article.text )'></span>
+                </section>
+
+            </article>
         </main>
 
         <!--<aside class="read-next">-->

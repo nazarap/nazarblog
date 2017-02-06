@@ -2189,3 +2189,7 @@ For Google Site Search
   height: 100px;
   overflow: hidden;
 }
+
+.article-short-text img, .article-short-text iframe {
+    display: none;
+}
