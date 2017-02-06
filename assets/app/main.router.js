@@ -37,6 +37,16 @@
                     controller: 'ArticleCreateController',
                     controllerAs: '$create',
                     templateUrl: 'templates/article_create.html'
+                })
+
+                .state('updateArticle', {
+                    url: '/update/article/:id',
+                    params: {
+                        state: "updateArticle"
+                    },
+                    controller: 'ArticleCreateController',
+                    controllerAs: '$create',
+                    templateUrl: 'templates/article_create.html'
                 });
 
             $urlRouterProvider.when('/', '/articles');

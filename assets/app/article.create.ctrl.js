@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module("mainApp")
-        .controller("ArticleCreateController", function ($http, $state, $scope) {
+        .controller("ArticleCreateController", function ($http, $state, $scope, $stateParams) {
             var vm = this;
 
             String.prototype.replaceAll = function(search, replacement) {
@@ -11,19 +11,36 @@
               return target.split(search).join(replacement);
             };
 
-            vm.article = {
-              title: "",
-              text: "My story ...",
-              link: ""
-            };
+            if($stateParams.state == "updateArticle") {
+
+                $http.get("article/" + $stateParams.id).then(function (response) {
+                    vm.article = response.data
+                });
+
+            } else {
+                vm.article = {
+                    title: "",
+                    text: "My story ...",
+                    link: ""
+                };
+            }
+
+
             vm.isOpenPreview = false;
 
             vm.publish = function() {
               vm.article.link = vm.article.title.toLowerCase().replaceAll(" ", "-");
 
-              $http.post("article/create", vm.article).then(function (response) {
-                  $state.go('articleList');
-              });
+              if($stateParams.state == "updateArticle") {
+                  $http.post("article/" + $stateParams.id, vm.article).then(function (response) {
+                      $state.go('article', {article_link: vm.article.link});
+                  });
+              } else {
+                  $http.post("article/create", vm.article).then(function (response) {
+                      $state.go('article', {article_link: vm.article.link});
+                  });
+              }
+
             };
 
             vm.closePreview = function () {

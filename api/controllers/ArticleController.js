@@ -67,9 +67,18 @@ module.exports = {
   },
 
   delete:function(req, res){
-      console.log(1);
       Article.destroy(req.param('id')).exec(function(err, todo){
 
+      });
+  },
+
+  update: function (req, res) {
+      Article.update(
+          { id: req.param('id') },
+          { title: req.param('title'), text: req.param('text'), link: req.param('link') }
+      ).exec(function(err, articles) {
+          if(err) {return res.serverError(err);}
+          return res.send('success');
       });
   }
 
