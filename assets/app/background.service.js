@@ -11,7 +11,10 @@
                 "background3",
                 "background4",
                 "background5",
-                "background6"
+                "background6",
+                "background7",
+                "background8",
+                "background9"
             ];
 
             return {
